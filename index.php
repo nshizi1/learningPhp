@@ -221,3 +221,149 @@
     // echo "Result using xor: " . ($result1 ? 'true' : 'false') . "\n";
     // echo "Result using or: " . ($result2 ? 'true' : 'false') . "\n";
 
+
+    // Arrays
+    // 1. indexed/numerical, associative, multi-dimensional
+
+    // 1. numerical
+    // $names = array("Queen","Prince","Kevin","Wilson");
+    // echo $names[2]; // Kevin
+    // foreach($names as $name){
+    //     echo $name." "; //all names
+    // }
+    // echo count($names); //4
+    // displaying using for loop
+    // $arrLgth = count($names);
+    // for($i = 0;$i< $arrLgth;$i++){
+    //     echo $names[$i]." ";
+    // }
+
+    // 2. associative
+    // $person = array(
+    //     "name" => "Wilson Nshizirungu",
+    //     "age" => 18,
+    //     "address" => "Kicukiro"
+    // );
+    // foreach($person as $key => $value){
+    //     echo $key.": ".$value."<br>";
+    // }
+    // var_dump($person); //array. returns the datatype of a variable
+
+    // 3. multidimensional(by index or by key & value)
+    // 3.1 by index
+    // $students = array(
+    //     array(
+    //         "name" => "Wilson Nshizirungu",
+    //         "class" => "Level 4 Networking",
+    //         "Marks" => 80
+    //     ),
+    //     array(
+    //         "name" => "Ishimwe Prince",
+    //         "class" => "Level 5 Software Development",
+    //         "Marks" => 89
+    //     ),
+    //     array(
+    //         "name" => "Umwali Queen",
+    //         "class" => "Level 3 Multimedia",
+    //         "Marks" => 75
+    //     )
+    // );
+
+    // foreach($students as $student){
+    //     foreach($student as $key => $value){
+    //         echo $key.": ".$value.".<br>";
+    //     }
+    //     echo "<br><br>";
+    // }
+
+    // 3.2 by key and value
+    // $marks = array(
+    //     "Database" => array(
+    //         "Wilson" => 70,
+    //         "Queen" => 80,
+    //         "Prince" => 68
+    //     ),
+    //     "Website" => array(
+    //         "Wilson" => 89,
+    //         "Queen" => 71,
+    //         "Prince" => 85
+    //     ),
+    //     "Integration" => array(
+    //         "Wilson" => 85,
+    //         "Queen" => 88,
+    //         "Prince" => 90
+    //     )
+    // );
+    // foreach($marks as $subject => $student){
+    //     echo $subject."<br>";
+    //     foreach($student as $name => $value){
+    //         echo $name.": ".$value.".<br>";
+    //     }
+    //     echo "<br>";
+    // }
+
+
+    // Conditional and iterative statements
+    // 1. conditional if, if-else ,if-else-if-else, nested if, switch case
+    // $a = 15;
+    // if($a > 10){
+    //     echo "Number is greater than 10";
+    // }
+
+    // $a = 5;
+    // if($a > 10){
+    //     echo "Number is greater than 10";
+    // }else{
+    //     echo "Number is less than 10";
+    // }
+
+    // $a = 10;
+    // if($a == 10){
+    //     echo "Number is equal to 10";
+    // }else if($a < 10){
+    //     echo "Number is less than 10";
+    // }else{
+    //     echo "Number is greater than 10";
+    // }
+
+    // $a = 20;
+    // if($a>0){
+    //     if($a % 2 ==0){
+    //         echo "Number is positive and divisible by 2";
+    //     }else{
+    //         echo "Number is positive but not divisible by 2";
+    //     }
+    // }else{
+    //     echo "Number is negative";
+    // }
+
+    // $a = !NULL;
+    // switch($a){
+    //     case !NULL:
+    //         echo "Variable a is not null";
+    //         break;
+    //     case NULL:
+    //         echo "Variable a is null";
+    //         break;
+    //     default:
+    //         echo "Unknown value of variable a";
+    // }
+
+    // 2. iterative statements: for, while, do-while, foreach
+    // for($a = 1; $a <= 5; $a++){
+    //     echo $a." ";
+    // }
+    // $a = 1;
+    // while($a <= 5){
+    //     echo $a." ";
+    //     $a++;
+    // }
+    // $a = 1;
+    // do{
+    //     echo $a." ";
+    //     $a++;
+    // }while($a <= 5);
+    // $numbers = array(1, 4, 2, 6);
+    // foreach($numbers as $number){
+    //     echo $number." ";
+    // }
