@@ -113,23 +113,23 @@
 
     // prime numbers ex: 2, 3, 5, 7, 11, 13, 17, 19................................................................
 
-    $count = 0;
-    $num = 2;
+    // $count = 0;
+    // $num = 2;
 
-    while ($count < 15) {
-        $isPrime = true;
-        for ($i = 2; $i <= sqrt($num); $i++) {
-            if ($num % $i === 0) {
-                $isPrime = false;
-                break;
-            }
-        }
-        if ($isPrime) {
-            echo $num . " ";
-            $count++;
-        }
-        $num++;
-    }
+    // while ($count < 15) {
+    //     $isPrime = true;
+    //     for ($i = 2; $i <= sqrt($num); $i++) {
+    //         if ($num % $i === 0) {
+    //             $isPrime = false;
+    //             break;
+    //         }
+    //     }
+    //     if ($isPrime) {
+    //         echo $num . " ";
+    //         $count++;
+    //     }
+    //     $num++;
+    // }
 
     // factorial of a number
     // $a = 6;
@@ -138,4 +138,86 @@
     //     $fact *=$i;
     // }
     // echo $fact;
-    // palindrome
+
+    // palindrome   //check if the number or text is same as its reverse
+
+    // $a = 'lorem';
+    // if($a == strrev($a)){
+    //     echo "palindrome";
+    // }else{
+    //     echo "not palindrome";
+    // }
+
+
+    // php patterns
+    // for($i = 1; $i <=5; $i++){
+    //     for($j = 1; $j<=5; $j++){
+    //         if($i % 2 ===  0){
+    //             echo " *";
+    //         }else{
+    //             echo "* ";
+    //         }
+    //     }
+    //     echo "<br>";
+    // }
+
+    // for($i = 1; $i <=5; $i++){
+    //     for($j = 1; $j<=$i; $j++){
+    //         echo $j." ";
+    //     }
+    //     echo "<br>";
+    // }
+    // for($i = 5; $i >=1; $i--){
+    //     for($j = $i; $j>=1; $j--){
+    //         echo $j." ";
+    //     }
+    //     echo "<br>";
+    // }
+
+    // for ($i = 1; $i <= 5; $i++) {
+    //     for($j = 5; $j>=$i; $j--){
+    //         echo $j;
+    //     }
+    //     echo "<br>";
+    // }
+
+
+
+    // $name = NULL ?? "Wilson";
+    // echo $name;
+    // $isAdmin = true;
+    // echo ($isAdmin ?? false) ? 'Administrator' : 'User';
+    // $number = 15;
+    // echo ($number>10) ? "Number is greater than 10" : "Number is less than 10";
+
+
+    // defining a constant
+    // define('name', "Wilson");
+    // echo name; //outputs Wilson
+
+    // define ('a', 10);
+    // define ('b', 15);
+    // echo a+b; //outputs 25
+
+    //Operators in PHP:
+    // 1. arithmetic: +-/%*
+    // 2. assignment: = -= += *= %= /=
+    // 3. comparison: == === != !== < <= > >= 
+    // 4. logical: && || ! xor
+    // 5. string: .
+    // 6. operational: ?:
+    // 7. null coalescing: ?? //example:
+    // $name = $_GET['name'] ?? "Guest";
+    // echo $name; // outputs guest
+    // 8. increment/decrement: -- ++
+
+    // xor vs or operators examples:
+    // $a = true;
+    // $b = false;
+
+    // $result1 = $a xor $b;  // exclusive OR
+    // $result2 = $a or $b;   // regular OR
+
+    // echo "Result using xor: " . ($result1 ? 'true' : 'false') . "\n";
+    // echo "Result using or: " . ($result2 ? 'true' : 'false') . "\n";
+
