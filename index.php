@@ -387,4 +387,32 @@
     // }
     // echo "Hello PHP developer";
 
-    
+    // Making a chess table
+    // echo "<table width='550' height='500' border='30'>";
+    //     for($row = 1;$row<=10;$row++){
+    //         echo "<tr>";
+    //         for($col = 1; $col<=10;$col++){
+    //             $total = $row+$col;
+    //             if($total % 2 == 1){
+    //                 echo "<td></td>";
+    //             }else{
+    //                 echo "<td bgcolor='black'></td>";
+    //             }
+    //         }
+    //         echo "</tr>";
+    //     }
+    // echo "</table>";
+
+    // uploading image
+    // $folder = "uploads/";
+    // $allowedExt = array("jpg", "png");
+    // $file = $_FILES["fileName"]["name"];
+    // $fileExt = explode(".", $file);
+    // $fFileExt = strtolower(end($fileExt));
+    // if(!in_array($fFileExt, $allowedExt)){
+    //     echo "File not allowed";
+    // }else{
+    //     $targetFile = $folder.basename($_FILES["fileName"]["name"]);
+    //     move_uploaded_file($_FILES["fileName"]["tmp_name"], $targetFile);
+    //     echo "Uploaded";
+    // }
