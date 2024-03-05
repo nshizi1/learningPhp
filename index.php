@@ -19,7 +19,7 @@
     //     ),
     //     array(
     //         "id" => 3,
-    //         "name" => "Ineza Carine"
+    //         "name" => "Ineza Caline"
     //     ),
     //     array(
     //         "id" => 4,
@@ -416,3 +416,33 @@
     //     move_uploaded_file($_FILES["fileName"]["tmp_name"], $targetFile);
     //     echo "Uploaded";
     // }
+
+    session_start();
+    include("conn.php");
+    if(isset($_POST["signUp"])){
+        $email = $_POST["email"];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        $insert = mysqli_query($conn, "INSERT into users(email, username, password) values('$email','$username','$password')");
+        if($insert){
+            echo "Data inserted";
+            header("location: index.html");
+        }else{
+            echo "Failed";
+            header("location: signUp.html");
+        }
+    }
+
+    if(isset($_POST["logIn"])){
+        $_SESSION["username"] = $_POST["username"];
+        $password = $_POST["password"];
+
+        $checkUserExist = mysqli_query($conn, "SELECT * from users where username='".$_SESSION["username"]."' AND password='$password'");
+        if($checkUserExist->num_rows>0){
+            header("location: home.php");
+        }else{
+            header("location: index.html");
+            session_destroy();
+        }
+    }
