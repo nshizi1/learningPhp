@@ -98,18 +98,18 @@
     // }while(rand(1,10) <= 8);
 
     // // Fibonacci from 1 to 10;
-    // $n = 10;
-    // $a = 0;
-    // $b = 1;
-    // for($i = 1; $i<=10;$i++){
-    //     $c = $a+$b;
-    //     $a=$b;
-    //     $b=$c;
-    //     echo $c." "; //fibonacci of first 10 elements
-    //     if($c<=10){
-    //         echo $c." "; //fibonacci of elements below 10
-    //     }
-    // }
+        // $n = 10;
+        $a = 0;
+        $b = 1;
+        for($i = 1; $i<=10;$i++){
+            $c = $a+$b;
+            $a=$b;
+            $b=$c;
+            echo $c." "; //fibonacci of first 10 elements
+            if($c<=10){
+                echo $c." "; //fibonacci of elements below 10
+            }
+        }
 
     // // prime numbers ex: 2, 3, 5, 7, 11, 13, 17, 19................................................................
 
@@ -411,38 +411,57 @@
     // $fFileExt = strtolower(end($fileExt));
     // if(!in_array($fFileExt, $allowedExt)){
     //     echo "File not allowed";
+
+        
     // }else{
     //     $targetFile = $folder.basename($_FILES["fileName"]["name"]);
     //     move_uploaded_file($_FILES["fileName"]["tmp_name"], $targetFile);
     //     echo "Uploaded";
     // }
 
-    session_start();
-    include("conn.php");
-    if(isset($_POST["signUp"])){
-        $email = $_POST["email"];
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+    // session_start();
+    // include("conn.php");
+    // if(isset($_POST["signUp"])){
+    //     $email = $_POST["email"];
+    //     $username = $_POST["username"];
+    //     $password = $_POST["password"];
 
-        $insert = mysqli_query($conn, "INSERT into users(email, username, password) values('$email','$username','$password')");
-        if($insert){
-            echo "Data inserted";
-            header("location: index.html");
+    //     $insert = mysqli_query($conn, "INSERT into users(email, username, password) values('$email','$username','$password')");
+    //     if($insert){
+    //         echo "Data inserted";
+    //         header("location: index.html");
+    //     }else{
+    //         echo "Failed";
+    //         header("location: signUp.html");
+    //     }
+    // }
+
+    // if(isset($_POST["logIn"])){
+    //     $_SESSION["username"] = $_POST["username"];
+    //     $password = $_POST["password"];
+
+    //     $checkUserExist = mysqli_query($conn, "SELECT * from users where username='".$_SESSION["username"]."' AND password='$password'");
+    //     if($checkUserExist->num_rows>0){
+    //         header("location: home.php");
+    //     }else{
+    //         header("location: index.html");
+    //         session_destroy();
+    //     }
+    // }
+
+    $a = 15;
+    $b = 9;
+    $c = 10;
+    if($a > $b){
+        if($a > $c){
+            echo "A is the greatest";
         }else{
-            echo "Failed";
-            header("location: signUp.html");
+            echo "C is the greatest";
         }
-    }
-
-    if(isset($_POST["logIn"])){
-        $_SESSION["username"] = $_POST["username"];
-        $password = $_POST["password"];
-
-        $checkUserExist = mysqli_query($conn, "SELECT * from users where username='".$_SESSION["username"]."' AND password='$password'");
-        if($checkUserExist->num_rows>0){
-            header("location: home.php");
+    }else{
+        if($b>$c){
+            echo "B is the greatest";
         }else{
-            header("location: index.html");
-            session_destroy();
+            echo "C is the greatest";
         }
     }
