@@ -12,6 +12,10 @@
     user-select: none;
 }
 
+.sign main {
+    width: 100%;
+}
+
 .logIn main {
     height: 100dvh;
     display: flex;
@@ -48,7 +52,7 @@
     gap: .1rem;
 }
 
-input {
+input, select {
     outline: none;
     padding: 8px 15px;
     border-radius: 4px;
@@ -77,7 +81,7 @@ input {
 /* retrieve page */
 
 
-.retrieve main{
+.retrieve main {
     padding: 20px;
 }
 
@@ -209,10 +213,12 @@ td {
     .home main table {
         box-shadow: none;
     }
-    .home main{
+
+    .home main {
         width: 100%;
     }
-    .retrieve main{
+
+    .retrieve main {
         padding: 0;
     }
 }
@@ -226,6 +232,17 @@ td {
     display: flex;
 }
 
+.brand {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 100px;
+        margin: 0 auto;
+    }
+}
+
 aside {
     width: 20%;
     height: 100dvh;
@@ -236,16 +253,7 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    .brand {
-        padding: 10px 15px;
 
-        a {
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 25px;
-            color: rgb(0, 102, 255);
-        }
-    }
 
     .links {
         display: flex;
@@ -269,8 +277,9 @@ aside {
 
     .logOut {
         display: flex;
+
         a {
-            width:100%;
+            width: 100%;
             text-decoration: none;
             color: rgb(53, 53, 53);
             padding: 10px 15px;
@@ -284,13 +293,16 @@ aside {
         }
     }
 }
-main{
+
+main {
     width: 80%;
 }
-.dashboard header{
+
+.dashboard header {
     padding: 20px;
     width: 100%;
-    div{
+
+    div {
         width: 100%;
         display: flex;
         border-radius: 5px !important;
@@ -298,25 +310,30 @@ main{
         align-items: center;
         background-color: rgb(213, 213, 213);
         padding: 10px 20px;
-        h6{
+
+        h6 {
             font-weight: 500;
             font-size: 15px;
-            span{
+
+            span {
                 color: rgb(0, 102, 255);
                 font-weight: 600;
             }
         }
     }
 }
-article{
+
+article {
     padding: 20px;
-    .title{
-        div{
+
+    .title {
+        div {
             margin-top: 10px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 2em;
-            div{
+
+            div {
                 padding: 10px;
                 border-radius: 5px;
                 display: flex;
@@ -326,4 +343,35 @@ article{
             }
         }
     }
+}
+
+.passwordDiv {
+    position: relative;
+
+    span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 5px;
+        /* Adjust as needed */
+        font-size: 0.82rem;
+        color: #1270b7;
+        font-weight: 600;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.5s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    span.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.passwordDiv input {
+    padding-right: 45px;
 }

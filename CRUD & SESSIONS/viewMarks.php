@@ -11,7 +11,7 @@ if(isset($_SESSION["username"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eSHURI | Retrieve students</title>
+    <title>eSHURI | View Students marks</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,8 +21,7 @@ if(isset($_SESSION["username"])){
     <main>
         <header class="onPrintHide">
             <div class="title">
-                <h4>eSHURI | Retrieve students</h4>
-                <a href="addStudent.php"><button>Add Student +</button></a>
+                <h4>eSHURI | View Students marks</h4>
             </div>
             <nav>
                 <div class="search">
@@ -31,13 +30,7 @@ if(isset($_SESSION["username"])){
                         <button type="submit" name="searchB">Search</button>
                     </form>
                 </div>
-                <div class="filter">
-                    <form action="" method="post">
-                        <input type="date" required name="sDate" id="">
-                        <input type="date" required name="eDate" id="">
-                        <button type="submit" name="filter">Filter Date</button>
-                    </form>
-                </div>
+                <a href="addMarks.php"><button>Add Marks +</button></a>
             </nav>
         </header>
         <div class="printTitle">
@@ -46,28 +39,14 @@ if(isset($_SESSION["username"])){
         <?php
 
         include ("conn.php");
-        $getData = "SELECT * FROM students";
+        $getData = "SELECT students.*, marks.*, (marks.lessonOne + marks.lessonTwo + marks.lessonThree) as total, ROUND((marks.lessonOne + marks.lessonTwo + marks.lessonThree) / 3, 2) as average from students RIGHT JOIN marks on students.id = marks.studentId";
 
-        if (isset ($_POST["filter"])) {
-            $sDate = $_POST["sDate"];
-            $eDate = $_POST["eDate"];
-            $getData = "SELECT * FROM students WHERE registrationDate BETWEEN '$sDate' AND '$eDate'";
-        }
 
         if (isset ($_POST["searchB"])) {
             $search = $_POST["search"];
-            $getData = "SELECT * FROM students WHERE firstName LIKE '%$search%' || lastName LIKE '%$search%' || age like '$search' || class like '%$search%' || registrationDate like '%$search%' ";
+            $getData = "SELECT students.*, marks.*, (marks.lessonOne + marks.lessonTwo + marks.lessonThree) as total, ROUND((marks.lessonOne + marks.lessonTwo + marks.lessonThree) / 3, 2) as average from students RIGHT JOIN marks on students.id = marks.studentId WHERE firstName LIKE '%$search%' || lastName LIKE '%$search%' || class like '%$search%' || lessonOne like '%$search%' || lessonTwo like '%$search%' || lessonThree like '%$search%' ";
         }
 
-        if (isset ($_GET["deleteId"])) {
-            $id = $_GET["deleteId"];
-            $deleteData = mysqli_query($conn, "DELETE from students WHERE id = '$id'");
-            if ($deleteData) {
-                echo "<script>alert('Record Deleted');</script>";
-            } else {
-                echo "<script>alert('Failed to delete');</script>";
-            }
-        }
 
 
         $execute = mysqli_query($conn, $getData);
@@ -78,19 +57,20 @@ if(isset($_SESSION["username"])){
         <table>
             <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
+                <th>Full Names</th>
                 <th>Class</th>
-                <th>Registration Date</th>
-                <th class="onPrintHide">Action</th>
+                <th>Lesson One</th>
+                <th>Lesson Two</th>
+                <th>Lesson Three</th>
+                <th>Average</th>
+                <th>Total</th>
             </tr>
             <?php
 
             if (mysqli_num_rows($execute) < 1) {
                 ?>
                 <tr>
-                    <td colspan="7" class="noData">No Data Found!</td>
+                    <td colspan="8" class="noData">No Data Found!</td>
                 </tr>
                 <?php
             } else {
@@ -102,23 +82,25 @@ if(isset($_SESSION["username"])){
                             <?php echo $count++ ?>
                         </td>
                         <td>
-                            <?php echo $row["firstName"] ?>
-                        </td>
-                        <td>
-                            <?php echo $row["lastName"] ?>
-                        </td>
-                        <td>
-                            <?php echo $row["age"] ?>
+                            <?php echo $row["firstName"]."  ".$row["lastName"] ?>
                         </td>
                         <td>
                             <?php echo $row["class"] ?>
                         </td>
                         <td>
-                            <?php echo $row["registrationDate"] ?>
+                            <?php echo $row["lessonOne"] ?>
                         </td>
-                        <td class="onPrintHide action">
-                            <a href="update.php?id=<?php echo $row["id"] ?>"><button class="edit">Edit</button></a>
-                            <a href="?deleteId=<?php echo $row["id"] ?>"><button class="delete">Delete</button></a>
+                        <td>
+                            <?php echo $row["lessonTwo"] ?>
+                        </td>
+                        <td>
+                            <?php echo $row["lessonThree"] ?>
+                        </td>
+                        <td>
+                            <?php echo $row["average"] ?>
+                        </td>
+                        <td>
+                            <?php echo $row["total"] ?>
                         </td>
                     </tr>
                     <?php

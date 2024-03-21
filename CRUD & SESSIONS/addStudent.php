@@ -1,3 +1,10 @@
+<?php
+
+include ("conn.php");
+session_start();
+if(isset($_SESSION["username"])){
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +48,6 @@
 </html>
 <?php
 
-include ("conn.php");
 if (isset ($_POST["addUser"])) {
     $fName = $_POST["fName"];
     $lName = $_POST["lName"];
@@ -55,4 +61,7 @@ if (isset ($_POST["addUser"])) {
     } else {
         echo "<script>alert('Error');</script>";
     }
+}
+}else{
+    header("location: logIn.php");
 }
